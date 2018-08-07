@@ -24,10 +24,9 @@ public class MainActivity extends AppCompatActivity {
 
         int price = calculatePrice();
 
-        String message = "Total: $" + price;
-        message = message + "\nThank You!";
+        String orderSummary = createOrderSummary(price);
 
-        displayMessage(message);
+        displayMessage(orderSummary);
     }
 
     /**
@@ -39,6 +38,23 @@ public class MainActivity extends AppCompatActivity {
         int price = quantity * 5;
 
         return price;
+    }
+
+    /**
+     * Create summary of the order.
+     *
+     * @param price of the order
+     * @return text summary
+     */
+    private String createOrderSummary(int price) {
+
+        String priceMessage = "Name: Hamoud Alhoqbani";
+
+        priceMessage = priceMessage + "\nQuantity: " + quantity;
+        priceMessage = priceMessage + "\nTotal: $" + price;
+        priceMessage = priceMessage + "\nThank you!";
+
+        return priceMessage;
     }
 
     /**
