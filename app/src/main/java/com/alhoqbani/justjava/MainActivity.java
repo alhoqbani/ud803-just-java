@@ -2,7 +2,9 @@ package com.alhoqbani.justjava;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -21,9 +23,13 @@ public class MainActivity extends AppCompatActivity {
      */
     public void submitOrder(View view) {
 
+        CheckBox whippedCreamCheckbox = findViewById(R.id.whipped_cream_checkbox);
+        boolean hasWhippedCream = whippedCreamCheckbox.isChecked();
+        Log.v("'MainActivity'", "Has whipped cream: " + hasWhippedCream);
+
         int price = calculatePrice();
 
-        String orderSummary = createOrderSummary(price);
+        String orderSummary = createOrderSummary(price, hasWhippedCream);
 
         displayMessage(orderSummary);
     }
@@ -42,13 +48,16 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Create summary of the order.
      *
-     * @param price of the order
+     * @param price           of the order
+     * @param addWhippedCream is weather or not the user wants whipped cream.
+     *
      * @return text summary
      */
-    private String createOrderSummary(int price) {
+    private String createOrderSummary(int price, boolean addWhippedCream) {
 
         String priceMessage = "Name: Hamoud Alhoqbani";
 
+        priceMessage = priceMessage + "\nAdd whipped cream?: " + addWhippedCream;
         priceMessage = priceMessage + "\nQuantity: " + quantity;
         priceMessage = priceMessage + "\nTotal: $" + price;
         priceMessage = priceMessage + "\nThank you!";
