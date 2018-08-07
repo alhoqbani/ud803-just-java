@@ -40,4 +40,25 @@ public class MainActivity extends AppCompatActivity {
         priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
     }
 
+    /**
+     * This method is called when the plus button is clicked.
+     *
+     * @param view The Button view.
+     */
+    public void increment(View view) {
+        int numberOfCoffees = 3;
+        display(numberOfCoffees);
+        displayPrice(numberOfCoffees * 2);
+    }
+
+    /**
+     * This method is called when the minus button is clicked.
+     *
+     * @param view The Button view.
+     */
+    public void decrement(View view) {
+        int numberOfCoffees = 1;
+        display(numberOfCoffees);
+        displayPrice(numberOfCoffees * 2);
+    }
 }
