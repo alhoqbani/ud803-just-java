@@ -21,10 +21,13 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
-//        display(quantity);
-//        displayPrice(quantity * 2);
 
-        displayMessage("I love drinking coffee in the morning.");
+        int price = quantity * 5;
+
+        String message = "$" + price + " for " + quantity + " cups of coffee. Pay up.";
+        message = message + "\nThank You!!";
+
+        displayMessage(message);
     }
 
     /**
