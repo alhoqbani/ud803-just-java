@@ -1,12 +1,9 @@
 package com.alhoqbani.justjava;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
-
-import java.text.NumberFormat;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,13 +13,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        TextView textView = new TextView(this);
-        textView.setText("lalalalalalalalalalalalalalalalalalalalalalalalalala");
-        textView.setTextSize(56);
-        textView.setTextColor(Color.GREEN);
-        textView.setMaxLines(2);
-
-        setContentView(textView);
+        setContentView(R.layout.activity_main);
     }
 
     /**
