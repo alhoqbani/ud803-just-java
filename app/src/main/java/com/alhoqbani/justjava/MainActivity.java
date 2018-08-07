@@ -22,12 +22,23 @@ public class MainActivity extends AppCompatActivity {
      */
     public void submitOrder(View view) {
 
-        int price = quantity * 5;
+        int price = calculatePrice(quantity, 5);
 
         String message = "$" + price + " for " + quantity + " cups of coffee. Pay up.";
         message = message + "\nThank You!!";
 
         displayMessage(message);
+    }
+
+    /**
+     * Calculates the price of the order based on the current quantity.
+     *
+     * @return the price
+     */
+    private int calculatePrice(int quantity, int pricePerCup) {
+        int price = quantity * pricePerCup;
+
+        return price;
     }
 
     /**
