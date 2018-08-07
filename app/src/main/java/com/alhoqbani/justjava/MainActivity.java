@@ -22,10 +22,10 @@ public class MainActivity extends AppCompatActivity {
      */
     public void submitOrder(View view) {
 
-        int price = calculatePrice(quantity, 5);
+        int price = calculatePrice();
 
-        String message = "$" + price + " for " + quantity + " cups of coffee. Pay up.";
-        message = message + "\nThank You!!";
+        String message = "Total: $" + price;
+        message = message + "\nThank You!";
 
         displayMessage(message);
     }
@@ -35,8 +35,8 @@ public class MainActivity extends AppCompatActivity {
      *
      * @return the price
      */
-    private int calculatePrice(int quantity, int pricePerCup) {
-        int price = quantity * pricePerCup;
+    private int calculatePrice() {
+        int price = quantity * 5;
 
         return price;
     }
