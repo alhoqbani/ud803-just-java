@@ -10,6 +10,8 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.text.NumberFormat;
+
 public class MainActivity extends AppCompatActivity {
 
     int quantity = 2;
@@ -46,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(Intent.ACTION_SENDTO);
         intent.setData(Uri.parse("mailto:"));
         intent.putExtra(Intent.EXTRA_TEXT, orderSummary);
-        intent.putExtra(Intent.EXTRA_SUBJECT, "Just Java order for " + name);
+        intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.order_summary_email_subject, name));
 
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
@@ -91,13 +93,13 @@ public class MainActivity extends AppCompatActivity {
      */
     private String createOrderSummary(String name, int price, boolean addWhippedCream, boolean addChocolate) {
 
-        String priceMessage = "Name: " + name;
+        String priceMessage = getString(R.string.order_summary_name, name);
 
-        priceMessage = priceMessage + "\nAdd whipped cream? " + addWhippedCream;
-        priceMessage = priceMessage + "\nAdd chocolate? " + addChocolate;
-        priceMessage = priceMessage + "\nQuantity: " + quantity;
-        priceMessage = priceMessage + "\nTotal: $" + price;
-        priceMessage = priceMessage + "\nThank you!";
+        priceMessage = priceMessage + "\n" + getString(R.string.order_summary_whipped_cream, addWhippedCream);
+        priceMessage = priceMessage + "\n" + getString(R.string.order_summary_chocolate, addChocolate);
+        priceMessage = priceMessage + "\n" + getString(R.string.order_summary_quantity, quantity);
+        priceMessage = priceMessage + "\n" + getString(R.string.order_summary_price, NumberFormat.getCurrencyInstance().format(price));
+        priceMessage = priceMessage + "\n" + getString(R.string.thank_you);
 
         return priceMessage;
     }
